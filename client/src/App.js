@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import useApplicationData from './hooks/useApplicationData';
 import Navbar from './components/Navbar';
@@ -23,8 +23,8 @@ function App() {
     <Router>
       <div className="App" >
         <Navbar/>
-        <h1> Users </h1>
-        <ul> {userList} </ul>
+        {/* <h1> Users </h1> */}
+        {/* <ul> {userList} </ul> */}
         <Switch>
           <Route path="/login">
             <Login />

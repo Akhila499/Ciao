@@ -1,13 +1,13 @@
 
-import FormPost from "./FormPost";
+import Post from "./Post";
 export default function Card() {
   
   
   return (
     <div>
       <h1>Card page</h1>
-      <button></button>
-      <FormPost />
+      
+      <Post />
     </div>
   );
 }
