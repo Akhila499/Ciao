@@ -1,8 +1,6 @@
-
 import Post from "./Post";
-export default function Card() {
-  
-  
+
+export default function Card() { 
   return (
     <div>
       <h1>Card page</h1>

@@ -34,7 +34,7 @@ export default function Form(props) {
       <button type="button" onClick={() => handleClick("video")}>
         add video
       </button>
-      
+
       {inputType && (
         <FileUploadForm
           searchValue={searchValue}
