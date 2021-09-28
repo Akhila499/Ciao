@@ -24,7 +24,7 @@ module.exports = ({
             .then((usersPosts) => {
                 const formattedPosts = getPostsByUsers(usersPosts);
                 res.json(formattedPosts);
-            })
+            }) 
             .catch((err) => res.json({
                 error: err.message
             }));

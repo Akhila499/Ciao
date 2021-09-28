@@ -35,19 +35,20 @@ export default function Form(props) {
         add video
       </button>
 
-      {inputType && (
-        <FileUploadForm
-          searchValue={searchValue}
-          setSearchValue={(event) => {
-            setSearchValue(event.target.value);
-          }}
-          descriptionValue={descriptionValue}
-          setDescriptionValue={(event) => {
-            setDescriptionValue(event.target.value);
-          }}
-          placeholder=""
-          onClick={onClick}
-        />
+      {inputType === 'gif' && (
+        // <FileUploadForm
+        //   searchValue={searchValue}
+        //   setSearchValue={(event) => {
+        //     setSearchValue(event.target.value);
+        //   }}
+        //   descriptionValue={descriptionValue}
+        //   setDescriptionValue={(event) => {
+        //     setDescriptionValue(event.target.value);
+        //   }}
+        //   placeholder=""
+        //   onClick={onClick}
+        // />
+        <AddGif/>
       )}
     </>
   );

@@ -2,3 +2,23 @@
   display: inline-block;
   padding: 10px;
 }
+.gifs{
+  display: inline-block;
+}
+.gifs img{
+  width:200px;
+  height:200px;
+}
+
+.apidata{
+  height:60vh;
+  width:60vw;
+  background-color:rgb(244, 246, 245);
+  overflow:scroll;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.gifs.selected{
+  border:5px solid red;
+}

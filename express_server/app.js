@@ -6,6 +6,7 @@ const cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var postsRouter = require('./routes/postGif');
 
 var app = express();
 app.use(cors()); // CORS middleware useage
@@ -24,5 +25,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 // app.use('/users', usersRouter);
 app.use('/api/users', usersRouter(dbHelpers));
+app.use('/api/gif', postsRouter(db));
 module.exports = app;
 
