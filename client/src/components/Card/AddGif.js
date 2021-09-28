@@ -53,6 +53,8 @@ export default function AddGif(props) {
 
         </div>
       )
+
+
     })
   }
   const renderError = () => {
@@ -74,7 +76,7 @@ export default function AddGif(props) {
       try{
         const results = await axios("https://api.giphy.com/v1/gifs/search",{
           params: {
-            api_key:"a4a4ChCUIBYY81ZPBKWf1bN3unRnTeXE",
+            api_key:"",
             q: search
           }
         })
