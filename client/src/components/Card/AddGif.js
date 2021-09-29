@@ -59,10 +59,11 @@ export default function AddGif(props) {
       event.preventDefault()
       SetIsError(false);
       setIsLoading(true);
+      console.log('eennnnnvvv', typeof process.env.REACT_APP_GIPHY_KEY);
       try{
         const results = await axios("https://api.giphy.com/v1/gifs/search",{
           params: {
-            api_key:"",
+            api_key: process.env.REACT_APP_GIPHY_KEY,
             q: search
           }
         })
