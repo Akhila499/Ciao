@@ -2,3 +2,48 @@
   display: inline-block;
   padding: 10px;
 }
+.gifs{
+  display: inline-block;
+}
+.gifs img{
+  width:200px;
+  height:200px;
+}
+
+.apidata{
+  height:60vh;
+  width:60vw;
+  background-color:rgb(244, 246, 245);
+  overflow:scroll;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.gifs.selected{
+  border:5px solid red;
+}
+
+/* .test{
+  display: inline-block;
+  margin:5px;
+  border: 1px solid black;
+  background-color: blanchedalmond;
+}
+.test img{
+  height:300px;
+  width:200px;
+  padding: 10px;
+} */
+
+.images {
+  display: inline-block;
+}
+.images img {
+  width: 200px;
+  height:auto;
+
+}
+
+.images.selected{
+  border:5px solid red;
+}

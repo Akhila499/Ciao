@@ -1,13 +1,22 @@
 import Button from "./Button";
 
 export default function AddGif(props) {
+  const {userId, cardId, showGif, setShowGif} = props;
 
   const onClick = () => {
     console.log('clicked on add Gif');
   }
   
   const title = "Add Gif";
-
+  const [data, setData] =  useState([]) 
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, SetIsError] = useState(false);
+  const [search, setSearch] = useState("");
+  const [selectedGif, setSelectedGif] = useState({});
+  const [selectedGifId, setSelectedGifId] = useState("");
+  const [selectText, setSelectText] = useState("");
+  const history = useHistory();
+  // const [showGif, setShowGif] = useState(false);
 
   const handleSelectGif = (data) => {
     const { gif, id } = data
@@ -91,7 +100,10 @@ export default function AddGif(props) {
       .catch(err => console.log('--->--',err.data))
     }
     sendData();
-    history.push('/createcard');
+    window.location.reload(false);
+    // setShowGif(false);
+    // history.push(`/card/${cardId}`);
+    // history.push(`/cards`);
   }
   return (
     <>
