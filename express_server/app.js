@@ -3,10 +3,27 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors');
+const fileUpload = require('express-fileupload');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var postsRouter = require('./routes/postGif');
+let emailRouter = require('./routes/sendEmail');
+let newcardRouter = require('./routes/newCard');
+let signUpRouter = require('./routes/signUp');
+let loginRouter = require('./routes/login');
+let logoutRouter = require('./routes/logout');
+let contributorRouter = require('./routes/contributor');
+let sentRouter = require('./routes/sent');
+let cardRouter = require('./routes/card');
+let filterPostRouter = require('./routes/filterPost');
+let uploadsRouter = require('./routes/uploads');
+let postsImgRouter = require('./routes/postImg');
+let textRouter = require('./routes/text');
+let allRoutes = require('./routes/allRoutes');
+let BgRouter = require('./routes/background');
+const background = require('./routes/background');
+
 
 var app = express();
 app.use(cors()); // CORS middleware useage
@@ -21,10 +38,31 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(fileUpload());
 app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/api/bgimg', background(db) )
+
+
+
+
 // app.use('/users', usersRouter);
 app.use('/api/users', usersRouter(dbHelpers));
 app.use('/api/gif', postsRouter(db));
+app.use('/api/img', postsImgRouter(db));
+app.use('/api/uploads', uploadsRouter(db));
+app.use('/api/text', textRouter(db));
+app.use('/api/fetchData', allRoutes(db));
+
+app.use('/api/email', emailRouter(db));
+app.use('/api/newcard', newcardRouter(db));
+app.use('/api/signup', signUpRouter(db));
+app.use('/api/login', loginRouter(db));
+app.use('/api/logout', logoutRouter(db));
+app.use('/api/contributor', contributorRouter(db));
+app.use('/api/sent', sentRouter(db));
+app.use('/api/card', cardRouter(db));
+app.use('/api/filterpost', filterPostRouter(db));
+app.use('api/bgimg', BgRouter(db))
 module.exports = app;
 

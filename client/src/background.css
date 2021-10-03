@@ -1,0 +1,53 @@
+.bgModal {
+  display: block;
+  width: 400px;
+  height: 400px;
+  border: solid 5px red;
+  background-color: white;
+  position: absolute;
+  left: 300px;
+  top: 140px;
+
+}
+
+.bgMenu {
+  display: block;
+  width: 420px;
+  height: 200px;
+  padding-bottom: 20px;
+
+}
+.bgListOfImages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height:200px;
+  width:400px;
+  background-color: lavenderblush;
+  overflow:scroll;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.bgimages {
+  display: inline-block;
+}
+.bgimages img {
+  width: 115px;
+  height:auto;
+  margin: 2px;
+
+}
+
+.bgimages.selected{
+  border:5px solid red;
+}
+.bgTitle {
+text-align: center;
+
+}
+
+.background-imag {
+  height: 200vh;
+
+}
