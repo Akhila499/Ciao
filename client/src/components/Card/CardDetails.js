@@ -184,9 +184,9 @@ export default function CardDetails(props) {
      }}
     >
       <h1>Posts created</h1>
-      <Button variant="primary" onClick={handleShow}>
+      {userId && <Button variant="primary" onClick={handleShow}>
         Choose Background
-      </Button>
+      </Button>}
       {/* <Post cardId={cardId} userId={userId}/>
       <Schedule />
       <Contributors cardId={cardId}/> */}
@@ -214,8 +214,8 @@ export default function CardDetails(props) {
     <button onClick={handleClick1}>Add Gif</button>
     <button onClick={handleClick2}>Add Img</button>
     <button onClick={handleClick3}>Add video</button>
-    <button onClick={handleSend}>Send</button>
-    <button onClick={handleContri}>Add Contributor</button>
+    {userId && <button onClick={handleSend}>Send</button>}
+    {userId && <button onClick={handleContri}>Add Contributor</button>}
     {/* <button onClick={handleBg}>Add Background</button> */}
     {showGif && <AddGif cardId={cardId} userId={userId} showGif={showGif} setShowGif={setShowGif}/>}
     {showImg && <AddImg cardId={cardId} userId={userId} setShowImg={setShowImg} showImg={showImg}/>}

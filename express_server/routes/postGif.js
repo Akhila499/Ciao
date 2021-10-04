@@ -30,9 +30,26 @@ module.exports = (db) => {
       values: [gif_image,gif_text]
     }
 
-    return db.query(query)
-      .then(result => result.rows[0])
-      .catch(err => err);
+     db.query(query)
+      .then(result => {
+        console.log('returned', result.rows[0])
+        const userid = result.rows[0].user_id;
+        const query1 = {
+          text: 'SELECT * FROM users WHERE users.id = $1',
+          values: [userid]
+        }
+         db.query(query1)
+          .then(result => {
+            console.log('returning query2', result.rows[0])
+            if(result.rows[0]){
+
+              const firstName = {firstName: result.rows[0].first_name}
+              return res.send(firstName);
+            }
+            res.send(200, {message:'okay'});
+          })
+      })
+      .catch(err => console.log('cardid error',err));
 
 
     res.status(200).send({message: 'Welcome to gifphyy', date: new Date})
