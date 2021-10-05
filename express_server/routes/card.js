@@ -12,7 +12,7 @@ module.exports = (db) => {
 
     const card_id = req.params.id;
     const query1 = {
-      text:`SELECT posts.gif, posts.image, posts.video, posts.text, users.first_name, cards.title
+      text:`SELECT posts.id, posts.gif, posts.image, posts.video, posts.text, users.first_name, cards.title
       FROM posts
       INNER JOIN users ON posts.user_id = users.id 
       INNER JOIN cards ON posts.card_id = cards.id

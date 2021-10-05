@@ -5,6 +5,7 @@ import '../../App.css';
 import FileUploadForm from "./FileUploadForm";
 import classNames from "classnames";
 import { useHistory } from 'react-router-dom';
+import { Modal } from "react-bootstrap";
 
 export default function AddGif(props) {
   const {userId, cardId, showGif, setShowGif} = props;
@@ -23,7 +24,8 @@ export default function AddGif(props) {
   const [selectText, setSelectText] = useState("");
   const history = useHistory();
   // const [showGif, setShowGif] = useState(false);
-
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
   const handleSelectGif = (data) => {
     const { gif, id } = data
     if(!selectedGif[id]){
@@ -118,6 +120,8 @@ export default function AddGif(props) {
     </div>
     {/* <FileUploadForm placeholder="search" onChange={handleSearchChange} value = {search}/> */}
     <br/>
+    {/*  */}
+    
     <form onSubmit={handlePostSubmit} >
       <div>
         <input value = {search} 
@@ -131,8 +135,8 @@ export default function AddGif(props) {
         <textarea type="text" onChange = {handleText} placeholder = "Enter text here"/>
       </div>
       {/* <button type = "Submit" onClick={handlePostSubmit}>Submit</button> */}
-      <input type="submit" value="Submit"></input>
-    </form>
+       <input type="submit" value="Submit"></input> 
+     </form>
     <div>
       { selectedGif[selectedGifId] &&
 
@@ -147,3 +151,4 @@ export default function AddGif(props) {
     </>
   )
 }
+

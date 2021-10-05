@@ -9,7 +9,7 @@ import SendCard from "./SendCard";
 import ContributorForm from "./ContributorForm";
 import Background from "./Background";
 import CardContext from './CardContext';
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 import '../../background.css';
 
 export default function CardDetails(props) {
@@ -35,9 +35,8 @@ export default function CardDetails(props) {
   const [selectedBgId, setSelectedBgId] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, SetIsError] = useState(false);
-
-  // const [show, setShow] = useState(false);
-  // const handleClose = () => setShow(false);
+  const [postId, setPostId] = useState('');
+  
 
   const [title, setTitle] = useState('');
   const userId = localStorage.getItem('userId');
@@ -151,6 +150,21 @@ export default function CardDetails(props) {
   const handleBg = () => {
     setShowBg(!showBg);
   }
+  const removePost = (event, id)=> {
+    event.preventDefault();
+    setPostId(id);
+    const reactData = {id}
+    // setPosts((prev) => prev.filter((item) => item.id !== id));
+    const url = "http://localhost:3001/api/delete"
+    console.log(id);
+    axios.post(url, reactData)
+    .then(
+      window.location.reload(false)
+    )
+    .then(res => console.log('data delete delete'))
+      .catch(err => console.log('-->->->-',err.data))
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     SetIsError(false);
@@ -179,14 +193,12 @@ export default function CardDetails(props) {
        backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        width: '100vw',
-        height: '100vh'
+        width: '100%',
+        height: '100%'
      }}
     >
       <h1>Posts created</h1>
-      {userId && <Button variant="primary" onClick={handleShow}>
-        Choose Background
-      </Button>}
+      
       {/* <Post cardId={cardId} userId={userId}/>
       <Schedule />
       <Contributors cardId={cardId}/> */}
@@ -210,12 +222,15 @@ export default function CardDetails(props) {
         </Modal.Footer>
       </Modal>
 
-
-    <button onClick={handleClick1}>Add Gif</button>
-    <button onClick={handleClick2}>Add Img</button>
-    <button onClick={handleClick3}>Add video</button>
-    {userId && <button onClick={handleSend}>Send</button>}
-    {userId && <button onClick={handleContri}>Add Contributor</button>}
+    <div>  
+    {userId && <button variant="primary" onClick={handleShow} className={"addpostbtn"}>
+    <i class="fa fa-regular fa-clone"></i> Choose Background
+      </button>}
+    {userId && <button className="addpostbtn" onClick={handleClick1}><i class="fa fa-solid fa-file"></i>Add Gif</button>}
+    {userId && <button className="addpostbtn" onClick={handleClick2}><i class="fa fa-solid fa-image"></i>Add Img</button>}
+    {userId && <button className="addpostbtn" onClick={handleClick3}><i class="fa fa-solid fa-play"></i>Add video</button>}
+    {userId && <button className="addpostbtn" onClick={handleSend}><i class="fa fa-solid fa-paper-plane"></i>Send</button>}
+    {userId && <button className="addpostbtn" onClick={handleContri}><i class="fa fa-solid fa-user-plus"></i>Add Contributor</button>}
     {/* <button onClick={handleBg}>Add Background</button> */}
     {showGif && <AddGif cardId={cardId} userId={userId} showGif={showGif} setShowGif={setShowGif}/>}
     {showImg && <AddImg cardId={cardId} userId={userId} setShowImg={setShowImg} showImg={showImg}/>}
@@ -223,19 +238,22 @@ export default function CardDetails(props) {
     {showSend && <SendCard cardId={cardId}/> }
     {showContri && <ContributorForm cardId={cardId}/> }
     {showBg && <Background setBackground={setBackground}/>}
+    </div>
       {cardDetails.map(post => (
        
        
-        <div key={post.id}>
+        <div key={post.id} className="postcss">
           
+          <p>{post.id}</p>
           {post.gif && <img src={post.gif}/>}
           {post.image && <img src={post.image}/>}
-          {post.video && <video width="320" height="240" controls>
+          {post.video && <video controls>
             <source src={post.video} type="video/mp4" />
           </video>}
           
-          <p>{post.text}</p>
-          <p>Created By:{post.first_name}</p>
+          <p className='text'>{post.text}</p>
+          <p className="createdbycss">Created By:{post.first_name}</p>
+          <button onClick={(event)=>{removePost(event,post.id)}} >Delete</button>
         </div>
         
       ))
