@@ -80,12 +80,13 @@ export default function AddImg(props) {
     setIsLoading(true);
     console.log(search);
     const url = `https://api.unsplash.com/search/photos`;
+    console.log('Unsplashkey', typeof process.env.REACT_APP_UNSPLASH_KEY, process.env.REACT_APP_UNSPLASH_KEY);
     try {
       const results = await axios(url, {
         params: { query: search },
         headers: {
           Authorization:
-            "Client-ID xbh0A-ll5iy3nyH4JPGfKFHvzVYdOU_MfEaiX0U3T4I",
+          process.env.REACT_APP_UNSPLASH_KEY,
         },
       });
       console.log("RESULTS: ", results);

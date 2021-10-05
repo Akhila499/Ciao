@@ -1,7 +1,7 @@
 
 import './App.css';
 import useApplicationData from './hooks/useApplicationData';
-
+import './background.css';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Login from './components/Login';
@@ -15,6 +15,18 @@ import {
   Link
 } from "react-router-dom";
 import Card from './components/Card';
+import SendCard from './components/Card/SendCard';
+import NewCard from './components/NewCard';
+import Post from './components/Card/Post';
+import { useState } from "react";
+import Sent from './components/Sent';
+import Received from './components/Received';
+import axios from 'axios';
+import CardDetails from './components/Card/CardDetails';
+import Contributors from './components/Card/Contributors';
+import {Container} from 'react-bootstrap';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// axios.defaults.withCredentials = true;
 
 function App() {
   const [loginStatus, setLoginStatus] = useState(false);
@@ -59,7 +71,7 @@ function App() {
     
       <div className="App" >
       
-
+     
         <Navbar loginStatus = {loginStatus} firstName={firstName} setLoginStatus={setLoginStatus} userId={userId} />
         {/* <h1> Users </h1> */}
         {/* <ul> {userList} </ul> */}
@@ -78,7 +90,7 @@ function App() {
             <NewCard loginStatus = {loginStatus} userId={userId} setCardId={setCardId} cardId={cardId}/>
           </Route>
         </Switch>
-
+       
       </div >
 
 
