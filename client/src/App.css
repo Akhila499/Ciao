@@ -11,14 +11,17 @@
 }
 
 .apidata{
-  height:60vh;
-  width:60vw;
-  background-color:rgb(244, 246, 245);
+  max-height: 18rem;
+  width: 100%;
+  /* background-color:rgb(244, 246, 245); */
   overflow:scroll;
+  -webkit-overflow-scrolling: auto;
   text-align: center;
   margin-top: 10px;
 }
-
+.scroll{
+  background-color: #fff;
+}
 .gifs.selected{
   border:5px solid red;
 }
@@ -70,21 +73,21 @@
   border:1px solid #efefefd6;
   padding: 5px 10px 10px 10px;
   margin: 10px;
-  
+  background: #ffffffad;
 }
 .titlebg a h6{
   /* display:inline-block; */
-  text-transform: capitalize;
-    font-size: .7rem;
+  text-transform: uppercase;
+    font-size: .9rem;
     font-weight: 900;
     margin: 0;
-    color: #eba855;
+    color: #cf4662;
     padding:5px 0px;
 }
 
 .titlebg img{
-  width: 13rem;
-  height: 10rem;
+  width: 16rem;
+  height: 14rem;
 }
 .postcss{
   display: inline-block;
@@ -107,6 +110,7 @@
 }
 .postcss p{
   margin: 0;
+  font-weight: 400;
 
 }
 .postcss .text{
@@ -120,6 +124,7 @@
   font-weight: bold;
   color: #182941;
   letter-spacing: .8px;
+  display: inline-block;
 }
 .addpostbtn{
   border: none;
@@ -160,4 +165,80 @@
     border: 1px solid white;
     border-radius: 5rem;
     margin-right: .4rem;
+}
+
+
+.modal-footer{
+  border: none,!important;
+  padding:none;
+  margin-bottom:10px;
+}
+.searchicon{
+  border: none;
+    padding: 13px 7px 10px;;
+    background: #73b9be;
+    color: white;
+}
+
+.fa-trash{
+  font-size: 1.2rem!important;
+    color: #ed5057;
+    float: right;
+}
+.name{
+  text-transform: capitalize;
+    color: #ee5057;
+    font-weight:600;
+}
+.closecss{
+  border: none;
+  color: white;
+  background: #8d73be;
+  margin-left: 5px;
+    padding-bottom: 7px;
+
+}
+.modal-header{
+  color: #ed5057;
+}
+.modal-title{
+  text-align: center;
+    font-size: 0.9rem!important;
+    text-transform: uppercase !important;
+    font-weight: 700!important;
+    letter-spacing: 0px;
+}
+
+.navbar-nav .nav-link{
+  font-size: .9rem;
+    font-weight: 700;
+    color:#fff!important;
+} 
+
+.w-100{
+  height: 60%;
+}
+
+.carousel-inner{
+  /* height: 100vh;  */
+}
+
+.thumb{
+  display:inline-block;
+}
+.thumb img{
+  width: 22vw;
+  padding: 6px;
+  border: 1px solid #ede9e9;
+  height: 30vw;
+  margin: .5rem;
+}
+.App{
+  background-image: url("./assets/bg1.jpg");
+    background-size: cover;
+    min-height: 100vh;
+}
+.homebg{
+  background-color: white;
+  min-height: 100vh;
 }

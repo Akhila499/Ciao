@@ -38,11 +38,8 @@ export default function NewCard (props) {
 
   return (
     <>
-    <div className='row'>
-      
     
-    </div>
-      <div className="row">
+      <div className="row bgcard">
         <div className = "col-xs-12 col-sm-12  col-lg-3 col-xl-3 mt-3 "></div>
           <div className="col-xs-12 col-sm-12  col-lg-6 col-xl-5 mt-3 ">
       { loginStatus && 

@@ -122,20 +122,21 @@ export default function AddGif(props) {
     <br/>
     {/*  */}
     
-    <form onSubmit={handlePostSubmit} >
-      <div>
+    <form onSubmit={handlePostSubmit} className="contact-form mycontformmodal">
+    <div className="form-group myformgrp">
         <input value = {search} 
           onChange = {handleSearchChange}
           type = "text"
           placeholder = "search"
+          className="form-control form-controlmodal"
         />
-        <button onClick={handleSubmit} type="submit">Go</button>
+        <button onClick={handleSubmit} type="submit" className="searchicon">Go</button>
       </div>
-      <div>
-        <textarea type="text" onChange = {handleText} placeholder = "Enter text here"/>
+      <div className="form-group myformgrp">
+        <textarea type="text" onChange = {handleText} placeholder = "Enter text here" className="form-control"/>
       </div>
       {/* <button type = "Submit" onClick={handlePostSubmit}>Submit</button> */}
-       <input type="submit" value="Submit"></input> 
+       <button type="submit" value="Submit" className="btn btn-primary mybtncss">Submit</button> 
      </form>
     <div>
       { selectedGif[selectedGifId] &&

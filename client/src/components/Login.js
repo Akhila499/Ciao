@@ -29,7 +29,7 @@ export default function Login(props) {
                   </div>
                   <div className="form-group myformgrp">
                     <input
-                      type="text"
+                      type="password"
                       placeholder = "Please enter your password"
                       onChange = {e => setLogPass(e.target.value)}
                       className="form-control"
