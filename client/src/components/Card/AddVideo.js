@@ -70,7 +70,10 @@ export default function AddVideo(props) {
             {fileName}
           </Form.Label>
         </div>
-        <Form.Control type="submit" value="Upload" className="btn btn-primary" />
+        <div>
+        <button type="submit" value="Upload" class="btn btn-primary mybtncss">Upload</button>
+        </div>
+        {/* <Form.Control type="submit" value="Upload" className="mybtncss" /> */}
        
       </Form.Group> 
       </Form>

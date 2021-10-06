@@ -56,7 +56,6 @@ export default function CardDetails(props) {
 
   const [title, setTitle] = useState('');
   const userId = localStorage.getItem('userId');
-
   
 
 
@@ -100,9 +99,9 @@ export default function CardDetails(props) {
     
     axios.get(url)
       .then(res => {
-        console.log('carddetails', res)
+        console.log('carddetails', res, res.data[0].title)
         setCardDetails(res.data);
-        setTitle(res.data.title);
+        setTitle(res.data[0].title);
       })
       .catch(err => console.log('->-->--',err.data))
   }
@@ -205,7 +204,9 @@ export default function CardDetails(props) {
 
   return (
     <>
+    
      <CardContext.Provider value={contextValue}>
+       
       {/* <p>This is bg url: {background}</p> */}
       <div
         className="background-image"
@@ -362,21 +363,27 @@ export default function CardDetails(props) {
                 </Modal.Footer>
               </Modal>
             </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
         {!userId && <>
-        (
+        
           {/* <h1> {post.title} </h1> */}
-        <h2>Your card</h2>)
+       
+        <h2 className="titlecardcss">{title}</h2>
         </>}
-
-        {userId &&<h1>Posts created in card</h1>}
+        
+      
         {userId && <button variant="primary" onClick={handleShow} className={"addpostbtn"}>
-        <i class="fa fa-regular fa-clone"></i> Choose Background
+        <i class="fa fa-regular fa-clone"></i> Choose BG
           </button>}
         {userId && <button className="addpostbtn" onClick={handleClick1}><i class="fa fa-solid fa-file"></i>Add Gif</button>}
         {userId && <button className="addpostbtn" onClick={handleClick2}><i class="fa fa-solid fa-image"></i>Add Img</button>}
         {userId && <button className="addpostbtn" onClick={handleClick3}><i class="fa fa-solid fa-play"></i>Add video</button>}
         {userId && <button className="addpostbtn" onClick={handleSend}><i class="fa fa-solid fa-paper-plane"></i>Send</button>}
         {userId && <button className="addpostbtn" onClick={handleContri}><i class="fa fa-solid fa-user-plus"></i>Add Contributor</button>}
+        {userId && {title} && <h2 className="titlecardwhile">{title}</h2>}
         {/* <button onClick={handleBg}>Add Background</button> */}
         {/* {showGif && <AddGif cardId={cardId} userId={userId} showGif={showGif} setShowGif={setShowGif}/>} */}
         {/* {showImg && <AddImg cardId={cardId} userId={userId} setShowImg={setShowImg} showImg={showImg}/>} */}
@@ -399,7 +406,7 @@ export default function CardDetails(props) {
               
               <p className='text'>{post.text}</p>
               <p className="createdbycss">Posted By: <a class="name"> {post.first_name}</a></p>
-              <span onClick={(event)=>{removePost(event,post.id)}} >{!userId && <i class="fa fa-solid fa-trash"></i>}</span>
+              {userId && <span onClick={(event)=>{removePost(event,post.id)}} ><i class="fa fa-solid fa-trash"></i></span>}
             </div>
             
           ))

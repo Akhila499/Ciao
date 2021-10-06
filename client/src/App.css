@@ -212,7 +212,9 @@
 .navbar-nav .nav-link{
   font-size: .9rem;
     font-weight: 700;
-    color:#fff!important;
+    color: #fff!important;
+    padding: 1.3rem;
+    text-transform: uppercase;
 } 
 
 .w-100{
@@ -241,4 +243,81 @@
 .homebg{
   background-color: white;
   min-height: 100vh;
+}
+.footer p{
+  text-align: center;
+    margin: 0;
+    padding: 1.4rem;
+    background: #6cabc2;
+    color: white;
+    Font-size: 1rem;
+    font-weight: 600;
+}
+.carousel-caption h5{
+  font-weight:bolder;
+}
+.carousel-caption p{
+  color:white;
+  font-weight: bold;
+}
+.navbar-dark .navbar-brand{
+  padding:0!important;
+}
+.navbar-expand .navbar-nav .nav-link {
+  padding-right: 1.5rem!important;
+  padding-left: 1.5rem!important;
+}
+.navbar-dark .navbar-text {
+  color: rgb(255 255 255)!important;
+  padding: 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.titlecardwhile {
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+.titlecardcss {
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: bold;
+  display: flow-root;
+  background: #6cabc3;
+  padding: 1rem;
+}
+.howitworks{
+  display: inline-flex;
+}
+.ciaocss img{
+  border: 1px solid #ede9e9;
+    padding: 0.4rem;
+    width: 42vw;
+    height: 26vw;
+    margin: 2rem 1.3rem 2rem;
+}
+.howtitle h4
+  {
+    padding: 1.5rem 1rem 0;
+    font-size: 4vw;
+    font-weight: bold;
+    color: #c0d182;
+
+}
+.howtitle ol li::marker{
+  content: "➙";
+  color: #c0d182;
+}
+.howtitle ol li{
+  font-size: 1rem;
+    color: #5f5d5f;
+    padding: 0 1.2rem;
+}
+.howitworks {
+  background-image: url('./assets/double-bubble-outline.png');
 }
