@@ -1,5 +1,23 @@
 export default function SignUp() {
-  
+  const history = useHistory();
+  const [regFirstName, setRegFirstName] = useState('');
+  const [regLastName, setRegLastName] = useState('');
+  const [regEmail, setRegEmail] = useState('');
+  const [regPass, setRegPass] = useState('');
+  const handleRegisterSubmit = (event) => {
+    event.preventDefault();
+    const reactRegData = {regFirstName, regLastName, regEmail, regPass};
+    const url = 'http://localhost:3001/api/signup/';
+    axios.post(url, reactRegData)
+    .then(res => {
+      console.log('registration details send');
+      console.log(res)
+    })
+    .catch(err => console.log('--->--',err.data))
+
+    
+    history.push('/login');  
+  }
   
   return (
     <>
@@ -34,7 +52,7 @@ export default function SignUp() {
               </div>
               <div className="form-group myformgrp">
                 <input
-                  type="text"
+                  type="password"
                   placeholder = "Please enter your password"
                   onChange = {e => setRegPass(e.target.value)}
                   className="form-control"

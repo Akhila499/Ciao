@@ -14,8 +14,8 @@ export default function Home() {
       alt="First slide"
     />
     <Carousel.Caption>
-      <h5>First slide label</h5>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      <h5>Welcome to Ciao</h5>
+      <p>A virtual greeting platform that enables to send felicitations</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -25,8 +25,8 @@ export default function Home() {
       alt="Second slide"
     />
     <Carousel.Caption>
-      <h5>Second slide label</h5>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <h5>Want to celebrate your teammate success ?</h5>
+      <p>Ciao is a great platform to do that...</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -36,8 +36,8 @@ export default function Home() {
       alt="Third slide"
     />
     <Carousel.Caption>
-      <h5>Third slide label</h5>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      <h5>Want to send greeting to your loved ones ??</h5>
+      <p>You're at the perfect spot !!</p>
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
@@ -46,7 +46,7 @@ export default function Home() {
     <div>
       <div className="thumb">
         <a href='http://localhost:3000/createcard'>
-          <img src="images/happy.jpg" alt="happy birthday"/>
+          <img src="images/thankyou.jpg" alt="thank you"/>
         </a>
       </div>
       
@@ -65,6 +65,25 @@ export default function Home() {
           <img src="images/getwellsoon.png" alt="get well soon"/>
         </a>
       </div>
+    </div>
+    <br/>
+    <br/>
+    <div className="howitworks">
+      <div className="ciaocss">
+        <img src="images/ciao.jpg" alt="how it works"/>
+      </div>
+      <div className="howtitle">
+      <h4>How Ciao Works</h4>
+      <ol>
+        <li><span>Create A Card</span></li>
+        <li><span>Add Post using a Gif or Img or Video</span></li>  
+        <li><span>Invite your teammates or friends or family to contribute to the card via email</span></li>
+        <li><span>After contribution send the card to the receipent via email.</span></li>
+      </ol>  
+      </div>
+    </div>
+    <div class="footer">
+      <p>&copy; 2021 Copy Rights Reserved by Akhila, Shakirat and Yusuf.  </p>
     </div>
     </div> 
     </>

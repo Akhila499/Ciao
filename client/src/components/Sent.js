@@ -34,7 +34,10 @@ export default function Sent(props){
 
   return(
     <>
-      
+      <br/>
+      <br/>
+      <br/>
+      <br/>
       <h4 className='heading'>Cards Created</h4>
       
       {/* <button onClick={sentCards}>click to view cards</button> */}
