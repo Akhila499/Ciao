@@ -57,10 +57,10 @@ export default function AddVideo(props) {
   return (
     <>
       {/* <Button onClick={onClick} title = {title}/> */}
-      <Form onSubmit={onSubmit}>
+      <Form onSubmit={onSubmit} className="contact-form mycontformmodal">
       <Form.Group controlId="formFile" className="mb-3" >
       {/* <form > */}
-        <div className="custom-file">
+        <div className="custom-file form-group myformgrp">
           <Form.Control
             type="file"
             // className="custom-file-input"

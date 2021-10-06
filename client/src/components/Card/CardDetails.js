@@ -9,17 +9,33 @@ import SendCard from "./SendCard";
 import ContributorForm from "./ContributorForm";
 import Background from "./Background";
 import CardContext from './CardContext';
-import { Modal } from "react-bootstrap";
+import { Modal,closeButton } from "react-bootstrap";
 import '../../background.css';
-
+import 'font-awesome/css/font-awesome.min.css';
 export default function CardDetails(props) {
   const [background, setBackground] = useState('');
   const contextValue = { background, setBackground };
   const [show, setShow] = useState(false);
+ 
   const [posts, setPosts] = useState([]);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () =>{
+    
+    setShow(false);
+    setShowGif(false);
+    setShowImg(false);
+    setShowVideo(false);
+    setShowSend(false);
+    setShowBg(false);
+    setShowContri(false);
+  };
+  
+
+  const handleShow = () =>{
+    setShow(true);
+    
+  };
+ 
   const {cardId} = useParams();
   const [cardDetails,setCardDetails] = useState([]);
   const [showGif, setShowGif] = useState(false);
@@ -40,6 +56,10 @@ export default function CardDetails(props) {
 
   const [title, setTitle] = useState('');
   const userId = localStorage.getItem('userId');
+
+  
+
+
 
   const images = [
     {
@@ -70,7 +90,8 @@ export default function CardDetails(props) {
     {
       id: 6,
       imgSrc: "https://wallpaperaccess.com/full/187161.jpg",
-    },
+    }
+    
   ];
 
   const getDetails = () => {
@@ -186,82 +207,207 @@ export default function CardDetails(props) {
     <>
      <CardContext.Provider value={contextValue}>
       {/* <p>This is bg url: {background}</p> */}
-    <div
-    className="background-image"
-      style={{
-       backgroundImage: `url(${background})` ,
-       backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        width: '100%',
-        height: '100%'
-     }}
-    >
-      <h1>Posts created</h1>
+      <div
+        className="background-image"
+          style={{
+            backgroundImage: `url(${background})` ,
+            backgroundPosition: 'center',
+        }}
+      >
+     
       
-      {/* <Post cardId={cardId} userId={userId}/>
-      <Schedule />
-      <Contributors cardId={cardId}/> */}
-      <Modal size="sm" className="bgModal" show={show} onHide={handleClose} centered>
-        <Modal.Header closeButton>
-          <Modal.Title>
-            <h1 className = "bgTitle">Background</h1>
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div className = "bgMenu">
-            {/* <Background cardId={cardId} setBackground={setBackground}/> */}
-            <div className="bgListOfImages">{renderImages()}</div>
-              {/* <button onClick = {handlePostSubmit}>Choose Background</button> */}
-              <button onClick = {handleSubmit}>Submit</button>
-              <button onClick = {getBg}>close</button>
+
+      <div>
+        <Modal size="sm" className="bgModal" show={show} onHide={handleClose} centered>
+          <Modal.Header  >
+            <Modal.Title>
+              <h1 className = "bgTitle">Add Background</h1>
+            </Modal.Title>
+          
+          </Modal.Header>
+          <Modal.Body>
+            <div className = "bgMenu">
+              {/* <Background cardId={cardId} setBackground={setBackground}/> */}
+              <div className="bgListOfImages">{renderImages()}</div>
+                {/* <button onClick = {handlePostSubmit}>Choose Background</button> */}
+                <button onClick = {handleSubmit} className="btn btn-primary mybtncss">Selected </button><span> </span>
+                <button onClick = {getBg} className="btn btn-primary mybtncss">Add Bg</button>
+                <button variant="secondary" onClick={handleClose} className="closecss">
+            Close
+          </button>
+            </div>
+          </Modal.Body>
+          <Modal.Footer>
+          
+          </Modal.Footer>
+        </Modal>
+      </div>
+    
+          <div>
+            <Modal
+              show={showVideo}
+              onHide={handleClose}
+              backdrop="static"
+              keyboard={false}
+              // className="bgModal"
+            >
+            <Modal.Header>
+                <Modal.Title>Upload Video</Modal.Title>
+              </Modal.Header >
+              <Modal.Body>
+              <AddVideo cardId={cardId} userId={userId}/>
+              </Modal.Body>
+              <Modal.Footer>
+                <button variant="secondary" onClick={handleClose} className="closecss">
+                  Close
+                </button>
+
+              </Modal.Footer>
+            </Modal>
           </div>
-        </Modal.Body>
-        <Modal.Footer>
+            <div>
+            <Modal
+                show={showSend}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+                // className="bgModal"
+              >
+              <Modal.Header>
+                  <Modal.Title>Send Card</Modal.Title>
+                </Modal.Header >
+                <Modal.Body>
+              <SendCard cardId={cardId}/>
+                </Modal.Body>
+                <Modal.Footer>
+                  <button variant="secondary" onClick={handleClose} className="closecss">
+                    Close
+                  </button>
+                  
+                </Modal.Footer>
+              </Modal>
+
+            </div>
+            <div>
+            <Modal
+                show={showContri}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+                // className="bgModal"
+              >
+              <Modal.Header>
+                  <Modal.Title>Add Contributor</Modal.Title>
+                </Modal.Header >
+                <Modal.Body>
+              <ContributorForm cardId={cardId}/>     
+                  </Modal.Body>
+                <Modal.Footer>
+                  <button variant="secondary" onClick={handleClose} className="closecss">
+                    Close
+                  </button>
+                  
+                </Modal.Footer>
+              </Modal>
+              
+            </div>
+   
+
+            <div>
+              {/* <button variant="primary" onClick={handleClick1}>  */}
+              {/* {userId && <button className="addpostbtn" onClick={handleClick1}><i class="fa fa-solid fa-file"></i>Add Gif</button>} */}
+              {/* </button> */}
+              
+
+              <Modal
+                show={showGif}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+                // className="bgModal"
+              >
+                <Modal.Header>
+                  <Modal.Title>Add Gif</Modal.Title>
+                </Modal.Header >
+                <Modal.Body>
+                <AddGif cardId={cardId} userId={userId} showGif={showGif} setShowGif={setShowGif}/>
+                </Modal.Body>
+                <Modal.Footer>
+                  <button variant="secondary" onClick={handleClose} className="closecss">
+                    Close
+                  </button>
+                  
+                </Modal.Footer>
+              </Modal>
+            </div>
+            <div>
+            <Modal
+                show={showImg}
+                onHide={handleClose}
+                backdrop="static"
+                keyboard={false}
+                // className="bgModal"
+              >
+                <Modal.Header>
+                  <Modal.Title>Add Image</Modal.Title>
+                </Modal.Header >
+                <Modal.Body>
+              <AddImg cardId={cardId} userId={userId} setShowImg={setShowImg} showImg={showImg}/>
+                </Modal.Body>
+                <Modal.Footer>
+                  <button variant="secondary" onClick={handleClose} className="closecss">
+                    Close
+                  </button>
+
+                </Modal.Footer>
+              </Modal>
+            </div>
+        {!userId && <>
+        (
+          {/* <h1> {post.title} </h1> */}
+        <h2>Your card</h2>)
+        </>}
+
+        {userId &&<h1>Posts created in card</h1>}
+        {userId && <button variant="primary" onClick={handleShow} className={"addpostbtn"}>
+        <i class="fa fa-regular fa-clone"></i> Choose Background
+          </button>}
+        {userId && <button className="addpostbtn" onClick={handleClick1}><i class="fa fa-solid fa-file"></i>Add Gif</button>}
+        {userId && <button className="addpostbtn" onClick={handleClick2}><i class="fa fa-solid fa-image"></i>Add Img</button>}
+        {userId && <button className="addpostbtn" onClick={handleClick3}><i class="fa fa-solid fa-play"></i>Add video</button>}
+        {userId && <button className="addpostbtn" onClick={handleSend}><i class="fa fa-solid fa-paper-plane"></i>Send</button>}
+        {userId && <button className="addpostbtn" onClick={handleContri}><i class="fa fa-solid fa-user-plus"></i>Add Contributor</button>}
+        {/* <button onClick={handleBg}>Add Background</button> */}
+        {/* {showGif && <AddGif cardId={cardId} userId={userId} showGif={showGif} setShowGif={setShowGif}/>} */}
+        {/* {showImg && <AddImg cardId={cardId} userId={userId} setShowImg={setShowImg} showImg={showImg}/>} */}
+        {/* {showVideo && <AddVideo cardId={cardId} userId={userId}/>} */}
+        {/* {showSend && <SendCard cardId={cardId}/> } */}
+        {/* {showContri && <ContributorForm cardId={cardId}/> } */}
+        {/* {showBg && <Background setBackground={setBackground}/>} */}
+        <div>
+          {cardDetails.map(post => (
           
-        </Modal.Footer>
-      </Modal>
-
-    <div>  
-    {userId && <button variant="primary" onClick={handleShow} className={"addpostbtn"}>
-    <i class="fa fa-regular fa-clone"></i> Choose Background
-      </button>}
-    {userId && <button className="addpostbtn" onClick={handleClick1}><i class="fa fa-solid fa-file"></i>Add Gif</button>}
-    {userId && <button className="addpostbtn" onClick={handleClick2}><i class="fa fa-solid fa-image"></i>Add Img</button>}
-    {userId && <button className="addpostbtn" onClick={handleClick3}><i class="fa fa-solid fa-play"></i>Add video</button>}
-    {userId && <button className="addpostbtn" onClick={handleSend}><i class="fa fa-solid fa-paper-plane"></i>Send</button>}
-    {userId && <button className="addpostbtn" onClick={handleContri}><i class="fa fa-solid fa-user-plus"></i>Add Contributor</button>}
-    {/* <button onClick={handleBg}>Add Background</button> */}
-    {showGif && <AddGif cardId={cardId} userId={userId} showGif={showGif} setShowGif={setShowGif}/>}
-    {showImg && <AddImg cardId={cardId} userId={userId} setShowImg={setShowImg} showImg={showImg}/>}
-    {showVideo && <AddVideo cardId={cardId} userId={userId}/>}
-    {showSend && <SendCard cardId={cardId}/> }
-    {showContri && <ContributorForm cardId={cardId}/> }
-    {showBg && <Background setBackground={setBackground}/>}
-    </div>
-      {cardDetails.map(post => (
-       
-       
-        <div key={post.id} className="postcss">
           
-          <p>{post.id}</p>
-          {post.gif && <img src={post.gif}/>}
-          {post.image && <img src={post.image}/>}
-          {post.video && <video controls>
-            <source src={post.video} type="video/mp4" />
-          </video>}
+            <div key={post.id} className="postcss">
+              
+              {/* <p>{post.id}</p> */}
+              {post.gif && <img src={post.gif}/>}
+              {post.image && <img src={post.image}/>}
+              {post.video && <video controls>
+                <source src={post.video} type="video/mp4" />
+              </video>}
+              
+              <p className='text'>{post.text}</p>
+              <p className="createdbycss">Posted By: <a class="name"> {post.first_name}</a></p>
+              <span onClick={(event)=>{removePost(event,post.id)}} >{!userId && <i class="fa fa-solid fa-trash"></i>}</span>
+            </div>
+            
+          ))
           
-          <p className='text'>{post.text}</p>
-          <p className="createdbycss">Created By:{post.first_name}</p>
-          <button onClick={(event)=>{removePost(event,post.id)}} >Delete</button>
-        </div>
-        
-      ))
-      
-      }
+          }
 
 
-
+          </div>
       </div>
     </CardContext.Provider>
     </>

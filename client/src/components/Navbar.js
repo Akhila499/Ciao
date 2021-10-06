@@ -28,7 +28,7 @@ export default function Navbar() {
   
   return (
     <div>
-      <Navbar bg="dark"className="nav-color navbar" variant="dark">
+      <Navbar className="nav-color navbar" variant="dark">
         <Container>
           <Navbar.Brand href="#home">Ciao</Navbar.Brand>
           <Nav className="me-auto">

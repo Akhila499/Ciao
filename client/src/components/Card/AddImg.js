@@ -123,52 +123,34 @@ export default function AddImg(props) {
     // history.push("/createcard");
   }
 
-  const handlePostSubmit = () => {
-    console.log('clicked on add image submit');
-    // event.preventDefault();
-
-    // console.log('clicked on submit img',{selectedImage}, {selectedImageId});
-
-    // const reactData = { img: selectedImage[selectedImageId].img, selectText, userId, cardId: 4};
-    // console.log('cardid cardid cardid', cardId);
-    // const url = "http://localhost:3001/api/img";
-    // let sendData = () => {
-    //   axios
-    //     .post(url, reactData)
-    //     .then((res) => console.log("data Img send", res))
-    //     .catch((err) => console.log("--->--", err.data));
-    // };
-    // sendData();
-    // window.location.href = `http://localhost:3000/card/${cardId}`;
-    // window.location.reload(false);
-    // setShowImg(false);
-    // history.push("/createcard");
-  };
+  
 
   return (
     <>
       <div>{renderError()}</div>
       <br />
-      <form onSubmit={(event) => handleImgSubmit(event)}>
-        <div>
+      <form onSubmit={(event) => handleImgSubmit(event)} className="contact-form mycontformmodal">
+        <div className="form-group myformgrp">
           <input
             value={search}
             onChange={handleSearchChange}
             type="text"
             placeholder="search"
+            className="form-control form-controlmodal"
           />
-          <button onClick={handleSubmit} type="submit">
+          <button onClick={handleSubmit} type="submit" className="searchicon">
             Go
           </button>
         </div>
-        <div>
+        <div className="form-group myformgrp">
           <textarea
             type="text"
             onChange={handleText}
             placeholder="Enter text here"
+            className="form-control"
           />
        </div>
-        <input type="submit" value="Submit"></input>
+        <button type="submit" value="Submit" class="btn btn-primary mybtncss">Submit</button>
         {/* /* <input type="submit" value="Cancel" onClick={onCancel}></input> */}
 
       </form> 

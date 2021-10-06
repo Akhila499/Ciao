@@ -2,7 +2,7 @@
   display: block;
   width: 400px;
   height: 400px;
-  border: solid 5px red;
+  border: solid 5px #e2dddd;
   background-color: white;
   position: absolute;
   left: 300px;
@@ -14,40 +14,53 @@
   display: block;
   width: 420px;
   height: 200px;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
 
 }
 .bgListOfImages {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  height:200px;
-  width:400px;
+  height: 14rem;
+    width: 19rem;
   background-color: lavenderblush;
   overflow:scroll;
   text-align: center;
   padding-top: 20px;
+  margin-bottom: 12px;
 }
 
 .bgimages {
   display: inline-block;
 }
 .bgimages img {
-  width: 115px;
-  height:auto;
+  width: 8rem;
+    height: 5rem;
   margin: 2px;
 
 }
 
-.bgimages.selected{
+.bgimages .selected{
   border:5px solid red;
 }
 .bgTitle {
 text-align: center;
+font-size: 1rem!important;
+text-transform: capitalize !important;
+font-weight: 600;
+
 
 }
 
 .background-imag {
   height: 200vh;
 
+}
+
+.background-image{
+  
+  background-size: cover;
+    background-repeat: no-repeat;
+    min-width: 100vw;
+    min-height: 100vh;
 }
