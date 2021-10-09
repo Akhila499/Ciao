@@ -24,8 +24,6 @@ export default function Navbarpage(props) {
   
 
 
-export default function Navbar() {
-  
   return (
     <div>
       <Navbar className="nav-color navbar" variant="dark">
@@ -60,8 +58,20 @@ export default function Navbar() {
           <ul>
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/createcard'>Create Card</Link></li>
-            <li><Link to='/login'>Login</Link></li>
-            <li><Link to='/signup'>SignUp</Link></li>
+            {loginStatus &&
+              <>
+              <li>logged in as -- {firstName}</li>
+              <li><Link to='/sent/' onClick={sentCards}>List</Link></li>
+              <li><Link onClick={loggedOut}>Logout</Link></li>
+              </>
+            }
+            {!loginStatus &&
+              <>
+                <li><Link to='/login'>Login</Link></li>
+                <li><Link to='/signup'>SignUp</Link></li>
+              </> 
+            }
+            
           </ul>
         </div>
       </nav> */}

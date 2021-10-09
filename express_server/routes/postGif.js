@@ -1,14 +1,17 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 
 
 // module.exports = router;
 module.exports = (db) => {
   /* GET home page. */
-  router.get('/', function(req, res) {
+  router.get('/', (req, res) => {
+    
+    console.log('filtercards',req.session.user_id);
     const query = {
-      text: `SELECT * FROM posts`
+      text: `SELECT * FROM posts where user_id = $1`,
+      values: [req.session.user_id]
     }
 
     return db.query(query)
@@ -24,10 +27,14 @@ module.exports = (db) => {
     console.log('------@@@@@-asdlksdfj---', req.body);
     const gif_image = req.body.selectedGif[req.body.selectedGifId].gif;
     const gif_text = req.body.selectText;
+    const userId = req.body.userId;
+    const cardId = req.body.cardId;
+    console.log('gifimg', gif_image, gif_text, userId, cardId);
+    // console.log(cardId);
     const query = {
-      text: `INSERT INTO posts (gif, text) VALUES ($1, $2) RETURNING *`,
+      text: `INSERT INTO posts (gif, text, card_id, user_id) VALUES ($1, $2, $3, $4) RETURNING *`,
 
-      values: [gif_image,gif_text]
+      values: [gif_image, gif_text, cardId, userId]
     }
 
      db.query(query)
@@ -52,7 +59,7 @@ module.exports = (db) => {
       .catch(err => console.log('cardid error',err));
 
 
-    res.status(200).send({message: 'Welcome to gifphyy', date: new Date})
+    // res.status(200).send({message: 'Welcome to gifphyy', date: new Date})
     // res.render('index', { title: 'Express' });
   });
 

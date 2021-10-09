@@ -5,7 +5,11 @@ import AddGif from "./AddGif";
 import Text from "./text";
 import FileUploadForm from "./FileUploadForm";
 import { useEffect, useState } from "react";
+
+
 export default function Form(props) {
+  const {userId, setUserId, setCardId, cardId, firstName} = props;
+  console.log('userid form', userId);
   const [searchValue, setSearchValue] = useState("");
   const [descriptionValue, setDescriptionValue] = useState("");
   const [inputType, setInputType] = useState("");
@@ -14,6 +18,7 @@ export default function Form(props) {
     setInputType(type);
     setSearchValue("");
     setDescriptionValue("");
+
   };
   const onClick = (event) => {
     event.preventDefault();

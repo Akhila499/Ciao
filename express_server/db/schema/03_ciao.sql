@@ -33,6 +33,7 @@ CREATE TABLE cards(
 
 CREATE TABLE contributors(
     id SERIAL PRIMARY KEY NOT NULL,
+    con_name VARCHAR(255),
     email VARCHAR(255) NOT NULL,
     card_id INTEGER REFERENCES cards(id) ON DELETE CASCADE
 );

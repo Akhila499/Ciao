@@ -10,7 +10,37 @@ export default function Login(props) {
   const [logEmail, setLogEmail] = useState('');
   const [logPass, setLogPass] = useState('');
   
+
+  const handleLoginSub = (event) => {
+    event.preventDefault();
+    const reactLogData = {logEmail, logPass};
+    const url = 'http://localhost:3001/api/login/';
+    axios.post(url, reactLogData, {withCredentials: true})
+    .then(res => {
+      console.log('login details send');
+      // console.log(res.data.rows[0].firstname);
+      // console.log('what the',res.data.rows[0])
+      console.log('w',res.data.message);
+
+      if(!res.data.message){
+        console.log(res.data.rows[0])
+        setFirstName(res.data.rows[0].first_name)
+        setLoginStatus(true);
+        setUserId(res.data.rows[0].id)
+      }else{
+        console.log(res.data.message);
+        setLoginStatus(false);
+        setFirstName('');
+      }
+      
+    })
+    .catch(err => console.log('--->--',err))
+
+    
+    history.push('/');  
+  }
   
+
   return (
     <>
       

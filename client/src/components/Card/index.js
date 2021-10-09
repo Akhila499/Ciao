@@ -8,8 +8,8 @@ import {useParams} from "react-router-dom";
 import Schedule from "./Schedule";
 import Contributors from './Contributors';
 
-
-export default function Card() { 
+export default function Card(props) { 
+  const {cardId} = props;
   const [posts, setPosts] = useState([]);
   const userId = localStorage.getItem('userId')
   const [background, setBackground] = useState("https://marketplace.canva.com/EAD2962NKnQ/2/0/1600w/canva-rainbow-gradient-pink-and-purple-zoom-virtual-background-_Tcjok-d9b4.jpg");
@@ -21,10 +21,15 @@ export default function Card() {
 
 
   useEffect(()=>{
-    const getgifdata = `http://localhost:3001/api/gif/`;
-    axios.get(getgifdata)
+    const getgifdata = `http://localhost:3001/api/gif`;
+    console.log('hello tesgskjdfh');
+    const userId = localStorage.getItem('userId')
+    console.log('!!!&&&!!!', userId);
+    // const reactinfo = {userId}
+    const params = {userId}
+    axios.get(getgifdata, {params, withCredentials: true})
     .then((response) => {
-      console.log('!!!!!!',response);
+      console.log('d',response.data.posts);
       setPosts(response.data.posts);
     })
     axios.get("http://localhost:3001/api/fetchData")

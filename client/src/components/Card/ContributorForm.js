@@ -17,7 +17,7 @@ export default function ContributorForm (props){
     if(isError){
       return (
         <div>
-          Email sent successfully.
+          unable to send email. please try again in few minutes
         </div>
       )
     }
@@ -27,8 +27,7 @@ export default function ContributorForm (props){
     if(!isCon){
       return (
         <div>
-          
-          unable to send email. please try again in few minutes
+          Email sent successfully.
         </div>
       )
     }

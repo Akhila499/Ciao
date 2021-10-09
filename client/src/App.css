@@ -255,12 +255,10 @@
 }
 .carousel-caption h5{
   font-weight:bolder;
-  font-size: 3rem;
 }
 .carousel-caption p{
   color:white;
   font-weight: bold;
-  font-size: 2rem;
 }
 .navbar-dark .navbar-brand{
   padding:0!important;
@@ -277,7 +275,7 @@
   text-transform: capitalize;
 }
 .titlecardwhile {
-  color: #dd4040;
+  color: white;
   text-transform: uppercase;
   font-size: 1.5rem;
   text-align: center;
@@ -306,31 +304,20 @@
 .howtitle h4
   {
     padding: 1.5rem 1rem 0;
-    font-size: 3.5rem;
+    font-size: 4vw;
     font-weight: bold;
     color: #c0d182;
-    margin-bottom: 2rem;
+
 }
 .howtitle ol li::marker{
   content: "➙";
   color: #c0d182;
 }
 .howtitle ol li{
-  font-size: 2rem;
+  font-size: 1rem;
     color: #5f5d5f;
     padding: 0 1.2rem;
 }
 .howitworks {
   background-image: url('./assets/double-bubble-outline.png');
-}
-.carousel-inner{
-  height: 51rem !important;;
-}
-
-.carousel-caption{
-  top:35rem;
-}
-
-.margincss{
-  margin-left:4rem;
 }

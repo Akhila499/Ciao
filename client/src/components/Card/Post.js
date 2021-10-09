@@ -3,7 +3,9 @@ import Form from "./Form";
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-export default function Post() {
+export default function Post(props) {
+  const {cardId, userId} = props;
+  console.log('post comp', cardId);
   const [showForm, setShowForm] = useState(false);
   const history = useHistory();
   const handleClick = () => {
@@ -15,7 +17,7 @@ export default function Post() {
   const placeHolder = "Search the Img"
   return (
     <>
-      {showForm ? <Form placeHolder = {placeHolder} /> : <Button onClick = {handleClick} title = {title}/>}
+      {showForm ? <Form placeHolder = {placeHolder} cardId={cardId} userId={userId}/> : <Button onClick = {handleClick} title = {title}/>}
     </>
 
   );

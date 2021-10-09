@@ -5,6 +5,7 @@ import './background.css';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Login from './components/Login';
+import Logout from './components/Logout';
 import SignUp from './components/SignUp';
 import Form from './components/Card/Form';
 import { useEffect, useContext } from 'react';
@@ -66,6 +67,13 @@ function App() {
     dispatch
   } = useApplicationData();
     const userList = state.users.map((user) => (<li key={user.id} > {user.first_name} {user.last_name} {user.email} </li> ));
+
+    useEffect(()=>{
+      checkLoggedIn();
+      console.log('checking useeffect');
+        
+    },[checkLoggedIn])
+  
   return (
     <Router>
        
@@ -77,14 +85,41 @@ function App() {
         {/* <h1> Users </h1> */}
         {/* <ul> {userList} </ul> */}
         <Switch>
-          <Route path="/login">
-            <Login />
+          <Route path="/login" >
+            <Login setLoginStatus={setLoginStatus} setFirstName={setFirstName} setUserId={setUserId}/>
+          </Route>
+          <Route path="/logout" >
+            <Logout setLoginStatus={setLoginStatus} />
+          </Route>
+          <Route path="/sent">
+            <Sent cardId={cardId}/>
+          </Route>
+          <Route path="/received">
+            <Received />
           </Route>
           <Route path="/signup">
             <SignUp />
           </Route>
+          <Route path="/form">
+            <Form userId={userId} cardId={cardId} firstName={firstName}/>
+          </Route>
+          <Route path="/post">
+            <Post cardId={cardId} userId={userId}/>
+          </Route>
+          <Route path="/sendcard">
+            <SendCard />
+          </Route>
+          <Route path="/contributor">
+            <Contributors />
+          </Route>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route path="/cards">
+            <Card cardId={cardId}/>
+          </Route>
+          <Route path='/card/:cardId'>
+            <CardDetails />
           </Route>
           <Route exact path="/createcard">
           {/* <Route path='/cards/:id'> */}
@@ -100,5 +135,6 @@ function App() {
     </Router>
   );
 }
+
 
 export default App;
