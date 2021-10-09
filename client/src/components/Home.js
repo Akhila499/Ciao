@@ -41,8 +41,7 @@ export default function Home() {
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
-    <br/>
-    <br/>
+    
     <div>
       <div className="thumb">
         <a href='http://localhost:3000/createcard'>
@@ -70,14 +69,14 @@ export default function Home() {
     <br/>
     <div className="howitworks">
       <div className="ciaocss">
-        <img src="images/ciao.jpg" alt="how it works"/>
+        <img src="images/c1.jpeg" alt="how it works"/>
       </div>
       <div className="howtitle">
       <h4>How Ciao Works</h4>
       <ol>
-        <li><span>Create A Card</span></li>
-        <li><span>Add Post using a Gif or Img or Video</span></li>  
-        <li><span>Invite your teammates or friends or family to contribute to the card via email</span></li>
+        <li><span>Choose a recipient to celebrate with the group greeting card.</span></li>
+        <li><span>Get creative. Attach messages, photos, GIFs or videos to the recipient's cards.</span></li>  
+        <li><span>Invite others to add their contributions and watch the virtual group card grow.</span></li>
         <li><span>After contribution send the card to the receipent via email.</span></li>
       </ol>  
       </div>
