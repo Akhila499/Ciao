@@ -34,12 +34,12 @@ body {
 }
 .mycontform{
 	/* margin: 3rem; */
-    border: 1px solid #e9e9e9;
-    display: inline-block;
-    padding: 0.75rem;
-    background-color: whitesmoke;
-		width: 40%;
-		margin: 2rem 3.5rem;
+	border: 1px solid #e9e9e9;
+	display: inline-block;
+	padding: 0.75rem;
+	background-color: whitesmoke;
+	width: 60%;
+	margin: 5rem 3.5rem;
 }
 .myformgrp .form-controlmodal{
 	display: inline-block;
