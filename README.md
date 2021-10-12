@@ -25,7 +25,7 @@ Our Ciao is not restricted to business purposes it can be used by families/frien
 * Axios for api calls.
 
 ### A Quick Glance
-![Ciao](https://github.com/Akhila499/Ciao/blob/main/Ciao_Video.mov)
+![Ciao](https://github.com/Akhila499/Ciao/blob/main/ciao.gif)
 
 
 
